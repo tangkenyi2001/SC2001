@@ -1,1 +1,1 @@
-# SC2001 SCEC Project 1
+# SC2001 SCEC Project
