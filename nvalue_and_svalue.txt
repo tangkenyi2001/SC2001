@@ -1,0 +1,90 @@
+n=1000, s=4
+HybridSort time: 0.0 seconds
+HybridSort comparisons: 8299
+n=1000, s=5
+HybridSort time: 0.0015323162078857422 seconds
+HybridSort comparisons: 8315
+n=1000, s=6
+HybridSort time: 0.0020406246185302734 seconds
+HybridSort comparisons: 8297
+n=1000, s=7
+HybridSort time: 0.002040863037109375 seconds
+HybridSort comparisons: 8305
+n=1000, s=8
+HybridSort time: 0.0010218620300292969 seconds
+HybridSort comparisons: 8484
+n=1000, s=9
+HybridSort time: 0.002042531967163086 seconds
+HybridSort comparisons: 8426
+n=10000, s=4
+HybridSort time: 0.0173189640045166 seconds
+HybridSort comparisons: 117007
+n=10000, s=5
+HybridSort time: 0.0309603214263916 seconds
+HybridSort comparisons: 116139
+n=10000, s=6
+HybridSort time: 0.016573190689086914 seconds
+HybridSort comparisons: 116060
+n=10000, s=7
+HybridSort time: 0.0316767692565918 seconds
+HybridSort comparisons: 116099
+n=10000, s=8
+HybridSort time: 0.016069889068603516 seconds
+HybridSort comparisons: 116164
+n=10000, s=9
+HybridSort time: 0.020451784133911133 seconds
+HybridSort comparisons: 116887
+n=100000, s=4
+HybridSort time: 0.2965402603149414 seconds
+HybridSort comparisons: 1497194
+n=100000, s=5
+HybridSort time: 0.3008906841278076 seconds
+HybridSort comparisons: 1497414
+n=100000, s=6
+HybridSort time: 0.27781105041503906 seconds
+HybridSort comparisons: 1497753
+n=100000, s=7
+HybridSort time: 0.2685201168060303 seconds
+HybridSort comparisons: 1497969
+n=100000, s=8
+HybridSort time: 0.26852893829345703 seconds
+HybridSort comparisons: 1497857
+n=100000, s=9
+HybridSort time: 0.2676684856414795 seconds
+HybridSort comparisons: 1498594
+n=1000000, s=4
+HybridSort time: 3.752913475036621 seconds
+HybridSort comparisons: 18262676
+n=1000000, s=5
+HybridSort time: 3.93062686920166 seconds
+HybridSort comparisons: 18260146
+n=1000000, s=6
+HybridSort time: 3.99222731590271 seconds
+HybridSort comparisons: 18262778
+n=1000000, s=7
+HybridSort time: 3.8032474517822266 seconds
+HybridSort comparisons: 18288889
+n=1000000, s=8
+HybridSort time: 3.700498580932617 seconds
+HybridSort comparisons: 18423161
+n=1000000, s=9
+HybridSort time: 3.7060368061065674 seconds
+HybridSort comparisons: 18422390
+n=10000000, s=4
+HybridSort time: 49.50603008270264 seconds
+HybridSort comparisons: 216605463
+n=10000000, s=5
+HybridSort time: 48.928842306137085 seconds
+HybridSort comparisons: 215798655
+n=10000000, s=6
+HybridSort time: 49.00382161140442 seconds
+HybridSort comparisons: 215799621
+n=10000000, s=7
+HybridSort time: 48.57011795043945 seconds
+HybridSort comparisons: 215802073
+n=10000000, s=8
+HybridSort time: 48.68939018249512 seconds
+HybridSort comparisons: 215798575
+n=10000000, s=9
+HybridSort time: 48.56265735626221 seconds
+HybridSort comparisons: 217090196

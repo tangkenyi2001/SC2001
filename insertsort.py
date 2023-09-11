@@ -2,6 +2,7 @@ import random
 import time
 # from tkinter import *
 import numpy as np # verify is list is sorted
+import matplotlib.pyplot as plt
 
 # global variable that tracks key comparisons
 com = 0
