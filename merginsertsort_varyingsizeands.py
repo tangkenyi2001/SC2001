@@ -4,7 +4,7 @@ import random
 import time
 import copy
 import math
-from scipy.optimize import fsolve
+
 
 # global variable that tracks key comparisons
 
@@ -139,8 +139,9 @@ def printer(array):
 
 
 if __name__ == "__main__":
-    array_sizes = [1000, 10000, 100000, 1000000, 10000000]  # Adjust as needed
-    s_values = [4, 5, 6, 7, 8, 9]  # Adjust as needed
+    array_sizes = [1000,5000, 10000,50000, 100000,500000, 1000000,5000000, 10000000]  # Adjust as needed
+    s_values = [i for i in range(4, 11)] 
+    # Adjust as needed
 
     # Create lists to store results
     hybrid_times = []
@@ -149,6 +150,9 @@ if __name__ == "__main__":
     # Loop over array sizes
     for n in array_sizes:
         # Loop over s values
+        collected=[]
+        collectedtime=[]
+        collectedkeycomparisons=[]
         for s in s_values:
             arr = [random.randrange(1, n, 1) for i in range(n)]
             insertmergearr = copy.copy(arr)
@@ -163,7 +167,60 @@ if __name__ == "__main__":
             print(f"n={n}, s={s}")
             print("HybridSort time:", hybrid_time, "seconds")
             print("HybridSort comparisons:", hybridcom)
-            hybrid_times.append(hybrid_time)
+            collectedtime.append(hybrid_time)
+            collected.append(s)
+            collectedkeycomparisons.append(hybridcom)
+            print(collected)
+            print(collectedtime)
+            print(collectedkeycomparisons)
+        plt.figure(figsize=(12, 8))
+        plt.title(f"Value of S Against Number of Key Comparisons when Array Size = {n}")
+        plt.plot(collected, collectedkeycomparisons, color="red")
+        plt.xlabel('Value of S')
+        plt.ylabel('Number Of Key Comparisons')
+        plt.show()
+        plt.title(f"Value of S Against Time Taken when Array Size = {n}")
+        plt.plot(collected, collectedtime, color="blue")
+        plt.xlabel('Value of S')
+        plt.ylabel('Time Taken')
+        plt.show()
+    for s in s_values:
+        # Loop over s values
+        collected=[]
+        collectedtime=[]
+        collectedkeycomparisons=[]
+        for n in array_sizes:
+            arr = [random.randrange(1, n, 1) for i in range(n)]
+            insertmergearr = copy.copy(arr)
+            # Merge Sort
+            # Hybrid Sort
+            hybridcom = 0
+            start = time.time()
+            hybridArray = hybridsort(insertmergearr, s)
+            end = time.time()
+            hybrid_time = end - start
+            hybrid_comparisons.append(hybridcom)
+            print(f"n={n}, s={s}")
+            print("HybridSort time:", hybrid_time, "seconds")
+            print("HybridSort comparisons:", hybridcom)
+            collectedtime.append(hybrid_time)
+            collected.append(n)
+            collectedkeycomparisons.append(hybridcom)
+            print(collected)
+            print(collectedtime)
+            print(collectedkeycomparisons)
+            
+        plt.figure(figsize=(12, 8))
+        plt.title(f"Array Size Against Number of Key Comparisons when S={s}")
+        plt.plot(collected, collectedkeycomparisons, color="red")
+        plt.xlabel('Array Size')
+        plt.ylabel('Number Of Key Comparisons')
+        plt.show()
+        plt.title(f"Array Size Against Time Taken when S={s}")
+        plt.plot(collected, collectedtime, color="blue")
+        plt.xlabel('Array Size')
+        plt.ylabel('Time taken')
+        plt.show()
 # Calculate y values for x*log(x) and x^2
 '''x = np.linspace(1, 10, 100)  # You can adjust the range and number of points as needed
 

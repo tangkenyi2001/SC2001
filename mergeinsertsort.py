@@ -4,7 +4,7 @@ import random
 import time
 import copy
 import math
-from scipy.optimize import fsolve
+
 
 # global variable that tracks key comparisons
 
@@ -178,7 +178,7 @@ if __name__ == "__main__":
     print("HybridSort made", hybridcom, "key comparisons")
 
 # Calculate y values for x*log(x) and x^2
-'''x = np.linspace(1, 10, 100)  # You can adjust the range and number of points as needed
+x = np.linspace(1, 10, 100)  # You can adjust the range and number of points as needed
 
 # Calculate the corresponding y values for the two functions
 y_mergesortbigo = (x * np.log2(x)) - (x - 1)
@@ -193,4 +193,4 @@ plt.ylabel('y')
 plt.title('Plot of y = (x * log2(x)) - (x - 1) and y = (x^2 + x - 2)/4')
 plt.grid(True)
 plt.legend()
-plt.show()'''
+plt.show()
