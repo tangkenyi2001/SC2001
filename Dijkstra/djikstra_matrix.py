@@ -1,4 +1,5 @@
 import heapq
+import numpy as np
 
 class Graph_Adjacency:  # Adjacency list
     def __init__(self, V):
