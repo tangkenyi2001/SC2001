@@ -168,28 +168,30 @@ def djikstra_AM(G, source, V):
     return d
 
 # Example graph
-# g_list = Adj_List_Graph(5) # Adj List Graph, uncomment to try out
-g_list = Adj_Matrix_Graph(5) # Adj Matrix Graph
+size = 100
+g_list = Adj_List_Graph(size) # Adj List Graph, uncomment to try out
+g_list = Adj_Matrix_Graph(size) # Adj Matrix Graph
 g_list.add_edge(0, 1, 4)
 g_list.add_edge(0, 2, 2)
 g_list.add_edge(1, 2, 5)
 g_list.add_edge(1, 3, 10)
 g_list.add_edge(2, 3, 3)
 g_list.add_edge(3, 4, 7)
+#g_list.add_edge(15,16,5)
 
 # Dik man power
 start_vertex = 0
-size = 5
-# shortest_distances = djikstra_AL(g_list, start_vertex, size) # Adjacency List version
 
-shortest_distances = djikstra_AM(g_list.adjMatrix, start_vertex, size) # Adjacency Matrix version
+shortest_distances = djikstra_AL(g_list, start_vertex, size) # Adjacency List version
+
+#shortest_distances = djikstra_AM(g_list.adjMatrix, start_vertex, size) # Adjacency Matrix version
 print(f"Shortest distances from vertex {start_vertex}: {shortest_distances}")
 
 # Wow it many numbar
 # Format = (Node: [(Neighbor, Weight), (Neighbor, Weight), ...])
 print("The graph representation in dictionary form:")
-#print(g_list.print_graph()) # Uncomment to print out adjacency list graph implementation
-print(g_list.print_matrix())
+print(g_list.print_graph()) # Uncomment to print out adjacency list graph implementation
+#print(g_list.print_matrix())
 
 # Output image of graph
 # Comments out if you laze install -_-
