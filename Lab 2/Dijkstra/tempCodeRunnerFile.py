@@ -1,9 +1,7 @@
-    plt.figure(figsize=(10, 6))
-    plt.plot(edge_range, timevalueslist, label='List Implementation', marker='o')
-    plt.plot(edge_range, timevaluesmatrix, label='Matrix Implementation', marker='x')
-    plt.xlabel('Number of Edges')
-    plt.ylabel('Time Taken (seconds)')
-    plt.title('Dijkstra Algorithm Performance')
-    plt.grid(True)
-    plt.legend()
-    plt.show()
+
+
+    for v in range(V):  # put vertices in priority queue in increasing d[v] order
+        Q.append((v, d[v]))  # [0] is vertex. [1] is weight of vertex
+
+    while not isQEmpty(Q):
+        u = getMin(Q)

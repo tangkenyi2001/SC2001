@@ -172,12 +172,15 @@ def djikstra_AM(G, source, V):
 # Example graph
 timevalueslist=[]
 timevaluesmatrix=[]
-verticerange=[10]
+verticerange=[1000]
 vertex_range = []
 edge_range=[]
+density_range=[]
 for size in verticerange:
     timevalueslist=[]
     timevaluesmatrix=[]
+    graphdensitylist=[]
+    graphdensitymatrix=[]
     edge_range=[]
     g_list = Adj_List_Graph(size) # Adj List Graph, uncomment to try out
     g_matrix = Adj_Matrix_Graph(size) # Adj Matrix Graph
@@ -190,7 +193,7 @@ for size in verticerange:
     maxsize=size*(size-1)
     secondsize=maxsize-size
     counter=0
-    for i in range(0,secondsize+2,1):
+    for i in range(0,secondsize+2,10000):
         while counter<i:
             firstrandomvertex=random.randint(0, size-1)
             secondrandomvertex=random.randint(0, size-1)
@@ -217,12 +220,16 @@ for size in verticerange:
         end = time.perf_counter()
         #timetakenlist=end
         timetakenmatrix=(end-start)
-        print(f"The time taken for list of size {size} with number of edges equal {edgesize} is {timetakenlist}")
-        print(f"The time taken for matrix of size {size} with number of edges equal {edgesize} is {timetakenmatrix}")
-        timevalueslist.append(timetakenlist)
-        timevaluesmatrix.append(timetakenmatrix)
-        vertex_range.append(size) 
-        edge_range.append(edgesize)
+        graphdensity=float(i/((size)*(size-1)))
+        print(f"The time taken for list of size {size} against graph density {i}is {timetakenlist}")
+        print(f"The time taken for matrix of size {size} against graph density is {timetakenmatrix}")
+        graphdensitylist.append(timetakenlist)
+        graphdensitymatrix.append(timetakenmatrix)
+        #timevalueslist.append(timetakenlist)
+        #timevaluesmatrix.append(timetakenmatrix)
+        density_range.append(graphdensity)
+        #vertex_range.append(size) 
+        #edge_range.append(edgesize)
         
         #g_list.visualize()
         #g_matrix.visualize()
@@ -230,9 +237,9 @@ for size in verticerange:
     #print(f"Shortest distances from vertex {start_vertex}: {shortest_distancesmatrix}")
     # Format = (Node: [(Neighbor, Weight), (Neighbor, Weight), ...])
     plt.figure(figsize=(10,6))
-    plt.plot(edge_range, timevalueslist, label='List Implementation', marker='o')
-    plt.plot(edge_range, timevaluesmatrix, label='Matrix Implementation', marker='x')
-    plt.xlabel('Number of Edges')
+    plt.plot(density_range, graphdensitylist, label='List Implementation', marker='o')
+    plt.plot(density_range, graphdensitymatrix, label='Matrix Implementation', marker='x')
+    plt.xlabel('Graph Density')
     plt.ylabel('Time Taken (seconds)')
     plt.title('Dijkstra Algorithm Performance')
     plt.grid(True)
