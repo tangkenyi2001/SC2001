@@ -172,7 +172,7 @@ def djikstra_AM(G, source, V):
 # Example graph
 timevalueslist=[]
 timevaluesmatrix=[]
-verticerange=[10,50]
+verticerange=[1000]
 vertex_range = []
 edge_range=[]
 for size in verticerange:
@@ -190,7 +190,7 @@ for size in verticerange:
     maxsize=size*(size-1)
     secondsize=maxsize-size
     counter=0
-    for i in range(0,secondsize+2,1):
+    for i in range(0,secondsize+2,10000):
         while counter<i:
             firstrandomvertex=random.randint(0, size-1)
             secondrandomvertex=random.randint(0, size-1)
