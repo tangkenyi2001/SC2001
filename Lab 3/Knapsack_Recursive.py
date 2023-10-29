@@ -9,9 +9,9 @@ def knapsack_recur(C, n, w, p):
         return max(p[n-1] + knapsack_recur(C-w[n-1], n-1, w, p) , knapsack_recur(C, n-1, w, p))
     
 if __name__ == "__main__":
-    C = 50 # capcacity of knapsack
-    w = [10, 20, 30]
-    p = [60, 120, 130]
+    C = 14 # capcacity of knapsack
+    w = [5, 6, 8]
+    p = [7, 6, 9]
     n = len(p) # number of objects
     start = time.time()
     print(knapsack_recur(C, n, w, p))
