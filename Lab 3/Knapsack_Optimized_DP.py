@@ -1,5 +1,5 @@
 # https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
-
+import sys
 def knapsack_unbounded_bottom_up(capacity):
     weights = [5, 6, 8]
     profits = [7, 6, 9]
@@ -7,7 +7,9 @@ def knapsack_unbounded_bottom_up(capacity):
     n = len(weights)
     # Create a table to store the maximum profit for each capacity
     dp = [0] * (capacity + 1)
-
+    memory_usage = sys.getsizeof(dp)
+    print("Memory usage of array K: {} bytes".format(memory_usage))
+    
     # Iterate over all capacities from 1 to the given capacity
     for i in range(1, capacity + 1):
         # Iterate over all types of objects
@@ -16,7 +18,12 @@ def knapsack_unbounded_bottom_up(capacity):
             if weights[j] <= i:
                 # Update the maximum profit for the current capacity
                 dp[i] = max(dp[i], dp[i - weights[j]] + profits[j])
-
+    memory_usage = sys.getsizeof(dp)
+    for row in dp:
+        print(row, end=' ')  # Use end=' ' to print elements on the same line
+    print()  
+    print("Memory usage of array K: {} bytes".format(memory_usage))
+    
     # The final result is stored in dp[capacity]
     return dp[capacity]
 
