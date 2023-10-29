@@ -194,7 +194,7 @@ for size in verticerange:
     secondsize=maxsize-size
     counter=0
     for i in range(0,secondsize+2,10000):
-        while counter<i:
+        '''while counter<i:
             firstrandomvertex=random.randint(0, size-1)
             secondrandomvertex=random.randint(0, size-1)
             while firstrandomvertex == secondrandomvertex:
@@ -204,7 +204,7 @@ for size in verticerange:
                 g_list.add_edge(firstrandomvertex, secondrandomvertex, weight)
                 g_matrix.add_edge(firstrandomvertex, secondrandomvertex, weight)
                 edgesize+=1
-                counter+=1
+                counter+=1'''
                 
         start_vertex = 0
         #start=time.time()

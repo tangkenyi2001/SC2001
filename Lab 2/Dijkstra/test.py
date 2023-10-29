@@ -176,21 +176,20 @@ verticerange=[10]
 vertex_range = []
 edge_range=[]
 for size in verticerange:
-    timevalueslist=[]
-    timevaluesmatrix=[]
     edge_range=[]
     g_list = Adj_List_Graph(size) # Adj List Graph, uncomment to try out
     g_matrix = Adj_Matrix_Graph(size) # Adj Matrix Graph
     edgesize=0
-    for i in range(size-1): #min number of edges is x-1 generate matrix and list
+    '''for i in range(size-1): #min number of edges is x-1 generate matrix and list
         weight = random.randint(1, 10)  # Random edge weight
         g_list.add_edge(i, i + 1, weight)
         g_matrix.add_edge(i, i + 1, weight)
         edgesize+=1
     maxsize=size*(size-1)
     secondsize=maxsize-size
+    counter=0'''
     counter=0
-    for i in range(0,secondsize+2,1):
+    for i in range(size-1):
         while counter<i:
             firstrandomvertex=random.randint(0, size-1)
             secondrandomvertex=random.randint(0, size-1)
@@ -202,42 +201,44 @@ for size in verticerange:
                 g_matrix.add_edge(firstrandomvertex, secondrandomvertex, weight)
                 edgesize+=1
                 counter+=1
-                
-        start_vertex = 0
+    g_list.visualize() 
+    '''start_vertex = 0
         #start=time.time()
-        start = time.perf_counter()
-        shortest_distanceslist = djikstra_AL(g_list, start_vertex, size) # Adjacency List version
+    start = time.perf_counter()
+    shortest_distanceslist = djikstra_AL(g_list, start_vertex, size) # Adjacency List version
         #end=time.time()
-        end = time.perf_counter()
+    end = time.perf_counter()
         #timetakenlist=end
-        timetakenlist=(end-start)
-        start = time.perf_counter()
-        shortest_distancesmatrix = djikstra_AM(g_matrix.adjMatrix, start_vertex, size) # Adjacency Matrix version
+    timetakenlist=(end-start)
+    start = time.perf_counter()
+    shortest_distancesmatrix = djikstra_AM(g_matrix.adjMatrix, start_vertex, size) # Adjacency Matrix version
         #end=time.time()
-        end = time.perf_counter()
+    end = time.perf_counter()
         #timetakenlist=end
-        timetakenmatrix=(end-start)
-        print(f"The time taken for list of size {size} with number of edges equal {edgesize} is {timetakenlist}")
-        print(f"The time taken for matrix of size {size} with number of edges equal {edgesize} is {timetakenmatrix}")
+    timetakenmatrix=(end-start)
+    print(f"The time taken for list of size {size} with number of edges equal {edgesize} is {timetakenlist}")
+    print(f"The time taken for matrix of size {size} with number of edges equal {edgesize} is {timetakenmatrix}")
+    if (size!=59):
         timevalueslist.append(timetakenlist)
         timevaluesmatrix.append(timetakenmatrix)
         vertex_range.append(size) 
-        edge_range.append(edgesize)
+    #edge_range.append(edgesize)
+        #g_matrix.visualize()'''
         
         #g_list.visualize()
         #g_matrix.visualize()
     #print(f"Shortest distances from vertex {start_vertex}: {shortest_distanceslist}")
     #print(f"Shortest distances from vertex {start_vertex}: {shortest_distancesmatrix}")
     # Format = (Node: [(Neighbor, Weight), (Neighbor, Weight), ...])
-    plt.figure(figsize=(10,6))
-    plt.plot(edge_range, timevalueslist, label='List Implementation', marker='o')
-    plt.plot(edge_range, timevaluesmatrix, label='Matrix Implementation', marker='x')
-    plt.xlabel('Number of Edges')
-    plt.ylabel('Time Taken (seconds)')
-    plt.title('Dijkstra Algorithm Performance')
-    plt.grid(True)
-    plt.legend()
-    plt.show()
+'''plt.figure(figsize=(10,6))
+plt.plot(vertex_range, timevalueslist, label='List Implementation', marker='o')
+plt.plot(vertex_range, timevaluesmatrix, label='Matrix Implementation', marker='x')
+plt.xlabel('Number of Vertex')
+plt.ylabel('Time Taken (seconds)')
+plt.title('Dijkstra Algorithm Performance')
+plt.grid(True)
+plt.legend()
+plt.show()
 print(g_matrix.print_matrix)
 print(timevalueslist)
 print(timevaluesmatrix)
@@ -246,5 +247,5 @@ print(timevaluesmatrix)
     #print(g_matrix.print_matrix())
     # Output image of graph
 #g_list.visualize()
-#g_matrix.visualize()
+#g_matrix.visualize()'''
 

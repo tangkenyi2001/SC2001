@@ -8,7 +8,7 @@ import math
 
 # global variable that tracks key comparisons
 
-mergedcom=0
+'''mergedcom=0
 hybridcom = 0
 insertcom=0
 s= 0 #threshhold number
@@ -184,8 +184,8 @@ if __name__ == "__main__":
         plt.plot(collected, collectedtime, color="blue")
         plt.xlabel('Value of S')
         plt.ylabel('Time Taken')
-        plt.show()
-    '''for s in s_values:
+        plt.show()'''
+'''for s in s_values:
         # Loop over s values
         collected=[]
         collectedtime=[]
@@ -223,19 +223,19 @@ if __name__ == "__main__":
         plt.ylabel('Time taken')
         plt.show()'''
 # Calculate y values for x*log(x) and x^2
-'''x = np.linspace(1, 100, 100)  # You can adjust the range and number of points as needed
+x = np.linspace(1, 5)  # You can adjust the range and number of points as needed
 
 # Calculate the corresponding y values for the two functions
-y_mergesortbigo = (x * np.log2(x)) - (x - 1)
-y_insertionsortbigo = (x**2 + x - 2) / 4
+y_mergesortbigo = x**2
+y_insertionsortbigo = (x**2)*np.log2(x)
 
 # Create the plot
 plt.figure(figsize=(8, 6))
-plt.plot(x, y_mergesortbigo, label='Merge Sort | y = (x * log2(x)) - (x - 1)', color='blue')
-plt.plot(x, y_insertionsortbigo, label='Insertion Sort | y = (x^2 + x - 2)/4', color='red')
+plt.plot(x, y_mergesortbigo, label='Adjacency Matrix| y = X^2', color='blue')
+plt.plot(x, y_insertionsortbigo, label='Adjacency List| y = X^2 * log(X)', color='red')
 plt.xlabel('x')
 plt.ylabel('y')
-plt.title('Plot of y = (x * log2(x)) - (x - 1) and y = (x^2 + x - 2)/4')
+plt.title('Time Complexity')
 plt.grid(True)
 plt.legend()
-plt.show()'''
+plt.show()
