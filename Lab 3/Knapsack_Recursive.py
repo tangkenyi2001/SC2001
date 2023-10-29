@@ -4,7 +4,7 @@ def knapsack_recur(C, n, w, p):
     if n == 0 or C == 0:
         return 0
     if w[n-1] > C:
-        return knapsack_recur(C, n, w, n-1)
+        return knapsack_recur(C, n-1, w, p)
     else:
         return max(p[n-1] + knapsack_recur(C-w[n-1], n-1, w, p) , knapsack_recur(C, n-1, w, p))
     
