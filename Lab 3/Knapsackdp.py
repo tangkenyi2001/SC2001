@@ -1,3 +1,7 @@
+import timeit
+import sys
+
+
 def unboundedKnapsack(c, w, p, idx, dp): 
     # Base Case 
     # if we are at idx 0. 
@@ -24,4 +28,10 @@ weights = [5, 6, 8]
 profits = [7, 6, 9] 
 n = len(profits) 
 dp = [[-1 for _ in range(capacity+1)] for _ in range(n)] 
+#print(unboundedKnapsack(capacity, weights, profits, n-1, dp)) 
+start = timeit.default_timer()
 print(unboundedKnapsack(capacity, weights, profits, n-1, dp)) 
+end = timeit.default_timer()
+print(f"runtime was: {(end-start) * 10**3} milliseconds")
+memory_usage = sys.getsizeof(dp)
+print("Memory usage of array K: {} bytes".format(memory_usage))  
