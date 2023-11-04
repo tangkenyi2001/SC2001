@@ -1,4 +1,5 @@
-import time
+import timeit
+import tracemalloc
 
 def knapsack_recur(C, n, w, p):
     if n == 0 or C == 0:
@@ -13,7 +14,11 @@ if __name__ == "__main__":
     w = [5, 6, 8]
     p = [7, 6, 9]
     n = len(p) # number of objects
-    start = time.time()
+    start = timeit.default_timer()
     print(knapsack_recur(C, n, w, p))
-    end = time.time()
-    print(f"runtime was: {end-start}")
+    end = timeit.default_timer()
+    print(f"runtime was: {(end-start) * 10**3} milliseconds")
+    tracemalloc.start()
+    q = knapsack_recur(C, n, w, p)
+    print(f"{tracemalloc.get_traced_memory()[1]} bytes")
+    tracemalloc.stop()
