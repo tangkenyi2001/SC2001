@@ -2,11 +2,11 @@
 # Program for 0-1 Knapsack problem 
 # Returns the maximum value that can 
 # be put in a knapsack of capacity W 
-
-
+import sys
+import time
 def knapSack(W, wt, val, n): 
     K = [[0 for x in range(W + 1)] for x in range(n + 1)] 
-  
+    
     # Build table K[][] in bottom up manner 
     for i in range(n + 1): 
         for w in range(W + 1): 
@@ -30,7 +30,13 @@ def knapSack(W, wt, val, n):
 
     # Reverse the selected items list to get the correct order
     selected_items.reverse()
-
+    '''for row in K:
+        for element in row:
+            print(element, end=' ')  # Use end=' ' to print elements on the same line
+        print()'''
+    memory_usage = sys.getsizeof(K[0]*(n+1))
+    print("Memory usage of 2D array K: {} bytes".format(memory_usage))
+    
     return K[n][W], selected_items
 
 # Driver code 
@@ -39,6 +45,11 @@ if __name__ == '__main__':
 	weight = [5, 6, 8] 
 	C = 14
 	n = len(profit) 
-	max_value, selected_items = knapSack(C, weight, profit, n)
+start=time.time()
+max_value, selected_items = knapSack(C, weight, profit, n)
+end=time.time()
+print("Profit:",profit)
+print("Weight:",weight)
+print("Time Taken:",end-start)
 print("Maximum value:", max_value)
 print("Selected items: Items that are worth ", selected_items)
