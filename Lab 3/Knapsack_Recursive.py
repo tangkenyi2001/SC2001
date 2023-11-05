@@ -26,7 +26,7 @@ if __name__ == "__main__":
     start = timeit.default_timer()
     print(knapsack_recur_unbounded(C, n-1, w, p))
     end = timeit.default_timer()
-    print(f"runtime was: {(end-start) * 10**3} milliseconds")
+    print("runtime: {:.3f} milliseconds".format((end-start) * 10**6))
     tracemalloc.start()
     q = knapsack_recur_unbounded(C, n-1, w, p)
     print(f"{tracemalloc.get_traced_memory()[1]} bytes")
