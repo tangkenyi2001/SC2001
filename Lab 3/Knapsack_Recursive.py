@@ -20,7 +20,7 @@ def knapsack_recur_unbounded(C, n, w, p):
     
 if __name__ == "__main__":
     C = 14 # capcacity of knapsack
-    w = [5, 6, 8]
+    w = [4, 6, 8]
     p = [7, 6, 9]
     n = len(p) # number of objects
     start = timeit.default_timer()

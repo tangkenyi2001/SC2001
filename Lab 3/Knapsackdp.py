@@ -34,7 +34,7 @@ def traceSelectedItems(capacity, weights, K):
     return selected_items
 
 capacity = 14
-weights = [4, 6, 8]
+weights = [5, 6, 8]
 profits = [7, 6, 9]
 n = len(profits)
 
