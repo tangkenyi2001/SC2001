@@ -1,37 +1,57 @@
 import timeit
 import sys
 
+def max(i, j):
+    return i if i > j else j
 
-def unboundedKnapsack(c, w, p, idx, dp): 
-    # Base Case 
-    # if we are at idx 0. 
-    if idx == 0: 
-        return (c // w[0]) * p[0] 
-    # If the value is already calculated then we will 
-    # previous calculated value 
-    if dp[idx][c] != -1: 
-        return dp[idx][c] 
-    # There are two cases either take element or not take. 
-    # If not take then 
-    notTake = 0 + unboundedKnapsack(c, w, p, idx - 1, dp) 
-    # if take then weight = W-wt[idx] and index will remain 
-    # same. 
-    take = float('-inf') 
-    if w[idx] <= c: 
-        take = p[idx] + unboundedKnapsack(c - w[idx], w, p, idx, dp) 
-    dp[idx][c] = max(take, notTake) 
-    return dp[idx][c] 
-  
-# Driver code 
+def knapSack(C, weight, value, n):
+    K = [[0 for x in range(C + 1)] for y in range(n + 1)]
+
+    for i in range(n + 1):
+        for c in range(C + 1):
+            if i == 0 or c == 0:
+                K[i][c] = 0
+            elif weight[i - 1] <= c:
+                K[i][c] = max(value[i - 1] + K[i][c - weight[i - 1]], K[i - 1][c])
+            else:
+                K[i][c] = K[i - 1][c]
+
+    return K
+
+def traceSelectedItems(capacity, weights, K):
+    n = len(weights)
+    selected_items = [0] * n
+
+    c = capacity
+    i = n
+    while i > 0 and c > 0:
+        if K[i][c] != K[i - 1][c]:
+            selected_items[i - 1] += 1
+            c -= weights[i - 1]
+        else:
+            i -= 1
+
+    return selected_items
+
 capacity = 14
-weights = [5, 6, 8]
-profits = [7, 6, 9] 
-n = len(profits) 
-dp = [[-1 for _ in range(capacity+1)] for _ in range(n)] 
-#print(unboundedKnapsack(capacity, weights, profits, n-1, dp)) 
+weights = [4, 6, 8]
+profits = [7, 6, 9]
+n = len(profits)
+
 start = timeit.default_timer()
-print(unboundedKnapsack(capacity, weights, profits, n-1, dp)) 
+K = knapSack(capacity, weights, profits, n)
+max_profit = K[n][capacity]
 end = timeit.default_timer()
-print(f"runtime was: {(end-start) * 10**3} milliseconds")
-memory_usage = sys.getsizeof(dp)
-print("Memory usage of array K: {} bytes".format(memory_usage))  
+
+print(f"Max Profits: {max_profit}")
+print("Runtime: {:.3f} microseconds".format((end - start)*1e6))
+memory_usage = sys.getsizeof(K)
+print("Memory Use: {} bytes".format(memory_usage))
+
+selected_items = traceSelectedItems(capacity, weights, K)
+print("Selected items: ", selected_items)
+print(f"Total profit for Capacity {capacity}: {selected_items[0]}({profits[0]}) + {selected_items[1]}({profits[1]}) + {selected_items[2]}({profits[2]}) = {max_profit}")
+
+print("Finished 2D DP Array:")
+for row in K:
+    print(row)

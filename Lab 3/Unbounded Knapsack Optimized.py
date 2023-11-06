@@ -19,7 +19,7 @@ def unboundedKnapsack(W):
     return dp[W] 
 
 def unboundedKnapsack_explained(W): 
-    weights = [5, 6, 8]
+    weights = [4, 6, 8]
     profits = [7, 6, 9]
   
     dp = [0 for i in range(W + 1)] 
