@@ -34,14 +34,15 @@ def traceSelectedItems(capacity, weights, K):
     return selected_items
 
 capacity = 14
-weights = [5, 6, 8]
+weights = [4, 6, 8]
 profits = [7, 6, 9]
 n = len(profits)
 
 start = timeit.default_timer()
 K = knapSack(capacity, weights, profits, n)
-max_profit = K[n][capacity]
 end = timeit.default_timer()
+max_profit = K[n][capacity]
+
 
 print(f"Max Profits: {max_profit}")
 print("Runtime: {:.3f} microseconds".format((end - start)*1e6))

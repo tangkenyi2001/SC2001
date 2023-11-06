@@ -13,7 +13,7 @@ def knapSack(C, weight, value, n):
     return max(value[n - 1] + knapSack(C - weight[n - 1], weight, value, n), knapSack(C, weight, value, n - 1))
 
 if __name__ == "__main__":
-    weights = [4, 6, 8] 
+    weights = [5, 6, 8] 
     profits = [7, 6, 9]
   
     C = 14
