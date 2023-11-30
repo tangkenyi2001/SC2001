@@ -1,5 +1,6 @@
 import timeit
 import sys
+import random
 
 def max(i, j):
     return i if i > j else j
@@ -34,8 +35,14 @@ def traceSelectedItems(capacity, weights, K):
     return selected_items
 
 capacity = 14
-weights = [4, 6, 8]
-profits = [7, 6, 9]
+min_weight = 1
+max_weight = 20
+min_profit = 5
+max_profit = 15
+
+# Generate random weights and profits for 100 elements
+weights = [random.randint(min_weight, max_weight) for _ in range(3)]
+profits = [random.randint(min_profit, max_profit) for _ in range(3)]
 n = len(profits)
 
 start = timeit.default_timer()
@@ -53,6 +60,6 @@ selected_items = traceSelectedItems(capacity, weights, K)
 print("Selected items: ", selected_items)
 print(f"Total profit for Capacity {capacity}: {selected_items[0]}({profits[0]}) + {selected_items[1]}({profits[1]}) + {selected_items[2]}({profits[2]}) = {max_profit}")
 
-print("Finished 2D DP Array:")
-for row in K:
-    print(row)
+#print("Finished 2D DP Array:")
+#for row in K:
+    #print(row)
